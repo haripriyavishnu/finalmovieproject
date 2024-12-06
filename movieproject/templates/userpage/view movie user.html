@@ -1,0 +1,46 @@
+{%  extends 'userpage/userindex.html' %}
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="post" action="/view_search_movie#a"> {% csrf_token %}
+<table>
+    <td><input type="text" placeholder="enter movie" name="title" class="form-control"> </td>
+    <td><input type="submit" class="btn btn-success"></td>
+</table>
+<br>
+    <table class="table table-bordered">
+        <tr>
+            <td style="color: #fbfbff">title</td>
+            <td style="color: #fbfbff">Description</td>
+            <td style="color: #fbfbff">Release date</td>
+            <td style="color: #fbfbff">Genre</td>
+            <td style="color: #fbfbff">Actors</td>
+            <td style="color: #fbfbff">Trailer link</td>
+            <td>Image</td>
+        </tr>
+        <tr>
+            {% for i in data %}
+            <td style="color: #fbfbff">{{ i.title }}</td>
+            <td style="color: #fbfbff">{{ i.description  }}</td>
+            <td style="color: #fbfbff">{{ i.release_date }}</td>
+            <td style="color: #fbfbff">{{ i.genres }}</td>
+            <td style="color: #fbfbff">{{ i.actors }}</td>
+                <td style="color: #fbfbff"><a href="{{ i.trailerlink }}">{{ i.trailerlink }}</a></td>
+            <td><img src="./media/{{i.image }}" width="100px" height="100px"></td>
+                <td><a href="/edit_movie_user/{{ i.id }}" class="btn btn-success">edit</a></td>
+                <td><a href="/delete_movie_user/{{ i.id }}" class="btn btn-danger">del</a></td>
+                <td><a href="/sent_review_user" class="btn btn-info">review</a></td>
+                <td><a href="/sent_rating_user/{{ i.id }}" class="btn btn-info">rating</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</form>
+
+</body>
+</html>
+{% endblock %}

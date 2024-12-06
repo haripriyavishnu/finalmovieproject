@@ -1,0 +1,41 @@
+{%  extends 'userpage/userindex.html' %}
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="post" action="/edit_user_profile_POST"> {% csrf_token %}
+    <table class="table table-bordered">
+        <tr>
+            <td style="color: #fbfbff">Username</td>
+            <td><input type="text" name="username" value="{{ data.username }}" class="form-control" required="[a-z A-Z]+"></td>
+        </tr>
+        <tr>
+            <td style="color: #fbfbff">First name</td>
+            <td><input type="text" name="firstname" value="{{ data.firstname }}" class="form-control" required="[a-z A-Z]+"></td>
+        </tr>
+        <tr>
+            <td style="color: #fbfbff">Last name</td>
+            <td><input type="text" name="lastname" value="{{ data.lastname }}" class="form-control" required="[a-z A-Z]+"></td>
+        </tr>
+        <tr>
+            <td style="color: #fbfbff">Email</td>
+            <td><input type="text" name="email" value="{{ data.email }}" class="form-control" required="[a-z A-Z]+"></td>
+        </tr>
+        <tr>
+            <td style="color: #fbfbff">Password</td>
+            <td><input type="text" name="password" value="{{ data.password }}" class="form-control" required="[a-z A-Z]+"></td>
+            <input type="hidden" name="id" value="{{ data.id }}" class="form-control" required="[a-z A-Z]+">
+        </tr>
+        <tr>
+            <td><input type="submit" class="btn btn-success" ></td>
+        </tr>
+    </table>
+</form>
+
+</body>
+</html>
+{% endblock %}

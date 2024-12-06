@@ -1,0 +1,29 @@
+{% extends 'adminpage/adminindex.html'%}
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table class="table table-bordered">
+    <tr>
+
+        <td style="color: #fbfbff">first name</td>
+        <td style="color: #fbfbff">last name</td>
+
+    </tr>
+    <tr>
+    {% for i in data %}
+    <td style="color: #fbfbff">{{ i.firstname }}</td>
+    <td style="color: #fbfbff">{{ i.lastname }}</td>
+        <td><a href="/delete_user_admin/{{ i.id }}" class="btn btn-danger">del</a></td>
+    </tr>
+    {% endfor %}
+
+</table>
+
+</body>
+</html>
+{% endblock %}

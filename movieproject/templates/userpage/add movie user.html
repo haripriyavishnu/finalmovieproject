@@ -1,0 +1,54 @@
+{%  extends 'userpage/userindex.html' %}
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="post" action="/add_movie_user_POST" enctype="multipart/form-data"> {% csrf_token %}
+    <table class="table table-bordered">
+
+
+
+        <tr>
+            <td style="color: #fbfbff">Title</td>
+            <td><input type="text" name="title" class="form-control" required="[a-z A-Z]+"></td>
+        </tr>
+        <tr>
+            <td style="color: #fbfbff">Description</td>
+            <td><input type="text" name="description" class="form-control" required="[a-z A-Z]+"></td>
+        </tr>
+        <tr>
+            <td style="color: #fbfbff">Release_date</td>
+            <td><input type="text" name="release_date" class="form-control" required="[a-z A-Z]+"></td>
+        </tr>
+        <tr>
+            <td style="color: #fbfbff">Genres</td>
+            <td><input type="text" name="genres" class="form-control" required="[a-z A-Z]+"></td>
+        </tr>
+        <tr>
+            <td style="color: #fbfbff">Actors </td>
+            <td><input type="text" name="actors" class="form-control" required="[a-z A-Z]+"></td>
+        </tr>
+        <tr>
+            <td style="color: #fbfbff">trailerlink</td>
+            <td><input type="text" name="trailerlink" class="form-control" required="[a-z A-Z]+"></td>
+        </tr>
+        <tr>
+            <td style="color: #fbfbff">image</td>
+            <td><input type="file" name="image" class="form-control" required="[a-z A-Z]+"></td>
+        </tr>
+        <tr>
+            <td><input type="submit" class="btn btn-success"></td>
+
+
+
+        </tr>
+    </table>
+</form>
+
+</body>
+</html>
+{% endblock %}
